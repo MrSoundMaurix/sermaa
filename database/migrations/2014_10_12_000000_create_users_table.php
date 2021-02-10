@@ -14,20 +14,26 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigInteger('id', true);
+            $table->id();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->bigInteger('current_team_id')->nullable();
+            $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
             $table->timestamps();
             $table->string('cedula', 13)->nullable();
             $table->string('nombres', 200)->nullable();
             $table->string('apellidos', 200)->nullable();
             $table->string('telefono', 13)->nullable();
-            $table->string('Direccion', 300)->nullable();
+            $table->string('direccion', 300)->nullable();
+            $table->integer('estado')->nullable();
+            $table->boolean('estado_matricula')->default(false);
+            $table->string('codigo', 30)->nullable()->unique();
+            $table->text('foto')->nullable();
+            $table->text('fototype')->nullable();
+            $table->decimal('matricula', 6)->nullable();
         });
     }
 

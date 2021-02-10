@@ -14,7 +14,7 @@ class AddForeignKeysToAnimalesTable extends Migration
     public function up()
     {
         Schema::table('animales', function (Blueprint $table) {
-            $table->foreign('id_ingresos_detalle', 'ingresos_detalle_fk')->references('id')->on('ingresos_detalle')->onUpdate('CASCADE')->onDelete('SET NULL');
+            $table->foreign('id_ingresos_detalle', 'ingresos_detalle_animales_fk')->references('id')->on('ingresos_detalle')->onUpdate('CASCADE')->onDelete('SET NULL');
         });
     }
 
@@ -26,7 +26,7 @@ class AddForeignKeysToAnimalesTable extends Migration
     public function down()
     {
         Schema::table('animales', function (Blueprint $table) {
-            $table->dropForeign('ingresos_detalle_fk');
+            $table->dropForeign('ingresos_detalle_animales_fk');
         });
     }
 }

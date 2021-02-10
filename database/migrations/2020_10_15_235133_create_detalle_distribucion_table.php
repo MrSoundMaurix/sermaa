@@ -19,6 +19,7 @@ class CreateDetalleDistribucionTable extends Migration
             $table->integer('id_cabecera_distribucion')->nullable();
             $table->string('producto', 30)->nullable();
             $table->integer('cantidad')->nullable();
+            $table->string('codigo_animal_pieza', 20)->nullable();
             $table->string('numero_id', 10)->nullable();
         });
     }

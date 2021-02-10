@@ -1,0 +1,25 @@
+@page {
+    margin: 0 0;
+    font-size: 1em;
+}
+
+body {
+    background-image: url("assets/img/employee-bg.png");
+    margin: 0px;
+}
+
+.table {
+    padding: 0 0;
+    margin: 2cm 0.5cm 0cm 0.5cm;
+}
+
+.table td,
+.table th {
+    border-top: 0px;
+}
+
+.table-borderless {
+
+    margin-left: auto;
+    margin-right: auto;
+}

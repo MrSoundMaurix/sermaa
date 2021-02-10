@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'cedula', 'nombres', 'apellidos', 'telefono', 'direccion', 'foto', 'fototype', 'current_team_id', 'estado', 'codigo', 'matricula'
     ];
 
     /**
@@ -57,4 +57,39 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function ingresos()
+    {
+        return $this->hasMany('App\Models\IngresoCamal', 'id');
+    }
+    public function matriculas()
+    {
+        return $this->hasMany(Matricula::class, 'id_users');
+    }
+
+    public function matriculasMercado()
+    {
+        return $this->hasMany(MatriculasMercado::class,'id_users');
+    }
+    public function matriculasCamal()
+    {
+        return $this->hasMany(MatriculaCamal::class,'id_users');
+    }
+
+
+    public static function estado($estado)
+    {
+        if ($estado == 0) {
+            return 'Activo';
+        }
+        return 'Inactivo';
+    }
+
+    public static function tipoUsuario($tipo)
+    {
+        if ($tipo == 0) {
+            return 'Usuario';
+        }
+        return 'Personal';
+    }
 }

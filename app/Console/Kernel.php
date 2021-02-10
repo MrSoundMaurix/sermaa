@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use DB;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,7 +25,22 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $fechacamal=DB::table('fechas')->where('categoria',1)->orderby('id','desc')->first(); 
+       $fechamercado= DB::table('fechas')->where('categoria',2)->orderby('id','desc')->first();
+      //  logger();
+        $schedule->call(function () use ($fechacamal) {
+            DB::table('users')->where('current_team_id',8)->where('estado',0)
+            ->update(['estado_matricula'=>false]); 
+        })->yearlyOn('01','04','16:35');
+ 
+        $schedule->call(function () use ($fechamercado) {
+            DB::table('puestos_mercado')->where('estado_puesto','A')
+            ->update(['matriculado'=>'N']); 
+        })->yearlyOn('01','04','16:35');
+        //yearlyOn($fechamercado->mes,$fechamercado->dia,$fechamercado->hora);
+       
+       
+                
     }
 
     /**

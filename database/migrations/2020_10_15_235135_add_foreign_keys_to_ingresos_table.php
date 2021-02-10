@@ -14,7 +14,7 @@ class AddForeignKeysToIngresosTable extends Migration
     public function up()
     {
         Schema::table('ingresos', function (Blueprint $table) {
-            $table->foreign('id_usuarios_camal', 'usuarios_camal_fk')->references('id')->on('usuarios_camal')->onUpdate('CASCADE')->onDelete('SET NULL');
+            $table->foreign('id_users', 'usuarios_camal_fk')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('SET NULL');
         });
     }
 

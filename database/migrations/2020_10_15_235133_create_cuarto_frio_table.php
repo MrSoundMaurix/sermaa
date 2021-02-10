@@ -15,8 +15,13 @@ class CreateCuartoFrioTable extends Migration
     {
         Schema::create('cuarto_frio', function (Blueprint $table) {
             $table->integer('id', true);
+            $table->timestamp('fecha_actual')->nullable();
+            $table->timestamp('fecha_modificacion')->nullable();
             $table->integer('total_piezas')->nullable();
-            $table->integer('id_ingresos_detalle')->nullable();
+
+            $table->string('pieza', 25)->nullable();
+            $table->string('especie', 15)->nullable();
+            $table->integer('id_ingresos')->nullable();
         });
     }
 
@@ -27,6 +32,6 @@ class CreateCuartoFrioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cuarto_frio');
+        Schema::dropIfExists('ingresos');
     }
 }

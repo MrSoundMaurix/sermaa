@@ -23,6 +23,7 @@ class CreateUsuariosMercadoTable extends Migration
             $table->string('telefono', 13)->nullable();
             $table->string('direccion', 300)->nullable();
             $table->text('foto')->nullable();
+            $table->text('fototype')->nullable();
             $table->char('estado', 1)->nullable();
         });
     }

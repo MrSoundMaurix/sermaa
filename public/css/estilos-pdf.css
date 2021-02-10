@@ -1,0 +1,59 @@
+@page {
+    margin: 0 0;
+    font-size: 1em;
+    size: 14.86cm 21cm landscape;
+}
+
+body {
+    background-image: url("assets/img/dist-bg.png");
+    margin: 0px;
+}
+
+header {
+    margin: 1.2cm 1cm 0cm 1cm;
+    padding: 0 0 ;
+    text-align: center;
+}
+
+caption {
+    margin: 0cm 1cm 0cm 1cm;
+}
+
+footer {
+    /* margin: 0cm 1cm; */
+    text-align: center;
+}
+
+.table {
+    font-size: 55%;
+    padding: 0 0;
+    margin: 0cm 0.5cm 0cm 0.5cm;
+}
+
+.page-break {
+    page-break-after: always;
+}
+
+/* header {
+    position: fixed;
+    top: 0cm;
+    right: 0cm;
+    left: 0cm;
+    height: 2cm;
+    background-color: red;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0cm;
+    left: 0cm;
+    right: 0cm;
+    height: 2cm;
+    background-color: green;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+} */

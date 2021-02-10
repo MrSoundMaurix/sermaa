@@ -14,8 +14,8 @@ class CreateUsuariosCamalTable extends Migration
     public function up()
     {
         Schema::create('usuarios_camal', function (Blueprint $table) {
-            $table->integer('id', true);
-            $table->char('tipo_usuario', 1)->nullable();
+            $table->increments('id', true);
+            $table->char('tipo_usuario', 1);
             $table->timestamps();
             $table->string('cedula', 13);
             $table->string('nombres', 200)->nullable();
@@ -23,7 +23,9 @@ class CreateUsuariosCamalTable extends Migration
             $table->string('telefono', 13)->nullable();
             $table->string('direccion', 300)->nullable();
             $table->string('guia', 30);
-            $table->char('estado', 1)->nullable();
+            $table->char('estado', 1);
+	        $table->string('correo', 50)->nullable();
+            $table->string('matricula', 6)->nullable();
         });
     }
 
